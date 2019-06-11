@@ -49,6 +49,40 @@
       </form>
       </div>
 
+      <div id="newNote">
+      <form id="new-note">
+        <input type="text" name="credentials[title]" placeholder="Title" />
+        <input type="text" name="credentials[content]" placeholder="Content" />
+        <input type="submit" value="New Note" />
+      </form>
+      </div>
+
+      <div id="deleteNote">
+      <form id="delete-note">
+        <input type="number" name="credentials[id]" placeholder="Note ID" />
+        <input type="submit" value="Delete Note" />
+      </form>
+      </div>
+
+      <div id="updateNote">
+      <form id="update-note">
+        <input type="number" name="credentials[id]" placeholder="Note ID" />
+        <input type="text" name="credentials[title]" placeholder="New Title" />
+        <input type="text" name="credentials[content]" placeholder="New Content" />
+        <input type="submit" value="New Note" />
+      </form>
+      </div>
+
+      <div id="getNote">
+      <form id="get-note">
+        <input type="number" name="credentials[id]" placeholder="Note ID" />
+        <input type="submit" value="Get Note" />
+      </form>
+      </div>
+
+      <div id="displayAllNotes">
+        <button name="display-all-note" id="display-all-notes" value="Display All Notes">Display All Notes</button>
+      </div>
 
       <h3 id="message"></h3>
     </body>
