@@ -7,6 +7,7 @@
 // require('./example')
 
 const authEvents = require('./auth/events')
+const noteEvents = require('./notes/events')
 
 $(() => {
   // user
@@ -14,4 +15,8 @@ $(() => {
   $('#sign-in').on('submit', authEvents.onSignIn)
   $('#sign-out').on('submit', authEvents.onSignOut)
   $('#change-pw').on('submit', authEvents.onChangePassword)
+  // note
+  $('#new-note').on('submit', noteEvents.onNewNote)
+  $('#delete-note').on('submit', noteEvents.onDeleteNote)
+  $('#get-note').on('submit', noteEvents.onGetNote)
 })

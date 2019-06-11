@@ -28,8 +28,6 @@ const onSignInSuccess = responseData => {
   setTimeout(() => $('#message').text(''), 2000)
   $('form').trigger('reset')
   $('#signOut').show()
-  $('#changePW').show()
-  $('#newGame').show()
   $('#signUp').hide()
   $('#signIn').hide()
 
@@ -53,9 +51,6 @@ const onSignOutSuccess = () => {
   $('form').trigger('reset')
   $('#signOut').hide()
   $('#changePW').hide()
-  $('#newGame').hide()
-  $('.container').hide()
-  $('#gameCount').hide()
   $('#signUp').show()
   $('#signIn').show()
 }
