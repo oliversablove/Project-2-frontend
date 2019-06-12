@@ -28,6 +28,7 @@ const onSignInSuccess = responseData => {
   setTimeout(() => $('#message').text(''), 2000)
   $('form').trigger('reset')
   $('#signOut').show()
+  $('#changePW').show()
   $('#signUp').hide()
   $('#signIn').hide()
 

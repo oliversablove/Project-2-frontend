@@ -3,7 +3,6 @@
 const getFormFields = require('../../../lib/get-form-fields')
 const api = require('./api')
 const ui = require('./ui')
-const store = require('../store.js')
 
 const onNewNote = event => {
   event.preventDefault()
@@ -30,13 +29,26 @@ const onDeleteNote = event => {
     .catch(ui.onDeleteNoteFailure)
 }
 
-const onUpdateNote = event => {
+/* const onUpdateNote = event => {
   event.preventDefault()
   const form = event.target
   const formData = getFormFields(form)
-  console.log(formData.note.title + ' ' + formData.note.content)
-  console.log(formData)
+
   api.updateNote(formData)
+    .then(function () {
+      onDisplayAllNotes(event)
+      ui.onUpdateNoteSuccess()
+    })
+    .catch(ui.onUpdateNoteFailure)
+}
+*/
+
+const onUpdateNote = event => {
+  event.preventDefault()
+  const id = $(event.target).data('id')
+  const formData = getFormFields(event.target)
+
+  api.updateNote(id, formData)
     .then(function () {
       onDisplayAllNotes(event)
       ui.onUpdateNoteSuccess()

@@ -27,10 +27,22 @@ const deleteNote = (formData) => {
   })
 }
 
-const updateNote = (formData) => {
+/* const updateNote = (formData) => {
   console.log(formData)
   return $.ajax({
     url: config.apiUrl + `/notes/${formData.note.id}`,
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: formData
+  })
+} */
+
+const updateNote = (id, formData) => {
+  console.log(formData)
+  return $.ajax({
+    url: config.apiUrl + '/notes/' + id,
     method: 'PATCH',
     headers: {
       Authorization: 'Token token=' + store.user.token
