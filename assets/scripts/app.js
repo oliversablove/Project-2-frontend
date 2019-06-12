@@ -18,5 +18,8 @@ $(() => {
   // note
   $('#new-note').on('submit', noteEvents.onNewNote)
   $('#delete-note').on('submit', noteEvents.onDeleteNote)
+  $('.content').on('click', '.remove-note', noteEvents.onDeleteNote)
   $('#get-note').on('submit', noteEvents.onGetNote)
+  $('#update-note').on('submit', noteEvents.onUpdateNote)
+  $('#display-all-notes').on('submit', noteEvents.onDisplayAllNotes)
 })

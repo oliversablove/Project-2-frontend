@@ -1,6 +1,7 @@
 'use strict'
 
 const store = require('../store.js')
+const showNotesTemplate = require('../templates/note-listing.handlebars')
 
 const onNewNoteSuccess = data => {
   $('#message').text('Created New Note!')
@@ -18,7 +19,6 @@ const onNewNoteFailure = data => {
 
 const onDeleteNoteSuccess = data => {
   $('#message').text('Deleted Note!')
-  store.noteID = data.note.id
   $('#message').removeClass()
   $('#message').addClass('success')
 }
@@ -29,9 +29,32 @@ const onDeleteNoteFailure = data => {
   $('#message').addClass('failure')
   setTimeout(() => $('#message').text(''), 2000)
 }
+
+const onUpdateNoteSuccess = (playerTurn, cell) => {
+  $('#message').text('Successfully Updated Note!')
+}
+
+const onUpdateNoteFailure = data => {
+  $('#message').text('Error: Could not Update Note.')
+}
+
+const onDisplayAllNotesSuccess = (data) => {
+  console.log(data)
+  const showNotesHtml = showNotesTemplate({ notes: data.notes })
+  $('.content').html(showNotesHtml)
+}
+
+const onDisplayAllNotesFailure = data => {
+  $('#message').text('Error: Could Retrieve Notes')
+}
+
 module.exports = {
   onNewNoteFailure,
   onNewNoteSuccess,
   onDeleteNoteFailure,
-  onDeleteNoteSuccess
+  onDeleteNoteSuccess,
+  onUpdateNoteFailure,
+  onUpdateNoteSuccess,
+  onDisplayAllNotesFailure,
+  onDisplayAllNotesSuccess
 }

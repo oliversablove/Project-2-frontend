@@ -4,6 +4,7 @@ const config = require('../config')
 const store = require('../store')
 
 const newNote = formData => {
+  console.log(formData.note)
   return $.ajax({
     url: config.apiUrl + '/notes',
     method: 'POST',
@@ -14,20 +15,47 @@ const newNote = formData => {
   })
 }
 
-const deleteNote = () => {
+const deleteNote = (formData) => {
+  console.log(formData)
   return $.ajax({
-    url: config.apiUrl + '/sign-out',
+    url: config.apiUrl + `/notes/${formData}`,
     method: 'DELETE',
     headers: {
       Authorization: 'Token token=' + store.user.token
     },
-    data: store.note.id
+    data: formData
+  })
+}
+
+const updateNote = (id, title, content) => {
+  return $.ajax({
+    url: config.apiUrl + '/notes/' + store.note.id,
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: {
+      id: id,
+      title: title,
+      content: content
+    }
+  })
+}
+
+const displayAllNotes = (formData) => {
+  return $.ajax({
+    url: config.apiUrl + '/notes',
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: formData
   })
 }
 
 /* const getNote = (id) => {
   return $.ajax({
-    url: config.apiUrl + `/games/${id}`,
+    url: config.apiUrl + `/notes/${id}`,
     method: 'GET',
     headers: {
       Authorization: 'Token token=' + store.user.token
@@ -37,6 +65,8 @@ const deleteNote = () => {
 
 module.exports = {
   newNote,
-  deleteNote
+  deleteNote,
+  updateNote,
+  displayAllNotes
   // getNote
 }
