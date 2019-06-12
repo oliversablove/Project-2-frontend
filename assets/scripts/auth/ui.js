@@ -53,6 +53,7 @@ const onSignOutSuccess = () => {
   $('#changePW').hide()
   $('#signUp').show()
   $('#signIn').show()
+  $('.content').text('')
 }
 
 const onSignOutFailure = () => {
