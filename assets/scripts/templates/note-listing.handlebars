@@ -13,7 +13,11 @@
         No content included.
       {{/if}}
     </p>
-    <button data-id="{{note.id}}" class="btn btn-danger update-note">Update Note</button>
+    <form data-id="{{note.id}}" class="change-note">
+      <input type="text" name="note[title]" placeholder="New Title" />
+      <input type="text" name="note[content]" placeholder="New Content" />
+      <input type="submit" value="Update Note" />
+    </form>
     <button data-id="{{note.id}}" class="btn btn-danger remove-note">Delete Note</button>
   </section>
 

@@ -21,5 +21,6 @@ $(() => {
   $('.content').on('click', '.remove-note', noteEvents.onDeleteNote)
   $('#get-note').on('submit', noteEvents.onGetNote)
   $('#update-note').on('submit', noteEvents.onUpdateNote)
+  $('.content').on('submit', '.change-note', noteEvents.onUpdateNote)
   $('#display-all-notes').on('submit', noteEvents.onDisplayAllNotes)
 })

@@ -25,16 +25,22 @@ const onDeleteNote = event => {
   api.deleteNote(id)
     .then(function () {
       onDisplayAllNotes(event)
+      ui.onDeleteNoteSuccess()
     })
     .catch(ui.onDeleteNoteFailure)
 }
 
 const onUpdateNote = event => {
   event.preventDefault()
-  store.id = event.target.id
-
-  api.updateNote(store.id, store.title, store.content)
-    .then(ui.onUpdateNoteSuccess(store.id))
+  const form = event.target
+  const formData = getFormFields(form)
+  console.log(formData.note.title + ' ' + formData.note.content)
+  console.log(formData)
+  api.updateNote(formData)
+    .then(function () {
+      onDisplayAllNotes(event)
+      ui.onUpdateNoteSuccess()
+    })
     .catch(ui.onUpdateNoteFailure)
 }
 
