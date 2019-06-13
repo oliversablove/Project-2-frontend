@@ -49,7 +49,6 @@ const onUpdateNoteFailure = data => {
 }
 
 const onDisplayAllNotesSuccess = (data) => {
-  console.log(data)
   const showNotesHtml = showNotesTemplate({ notes: data.notes })
   $('.content').html(showNotesHtml)
   $('form').trigger('reset')

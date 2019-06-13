@@ -4,7 +4,6 @@ const config = require('../config')
 const store = require('../store')
 
 const newNote = formData => {
-  console.log(formData.note)
   return $.ajax({
     url: config.apiUrl + '/notes',
     method: 'POST',
@@ -16,7 +15,6 @@ const newNote = formData => {
 }
 
 const deleteNote = (formData) => {
-  console.log(formData)
   return $.ajax({
     url: config.apiUrl + `/notes/${formData}`,
     method: 'DELETE',
@@ -28,7 +26,6 @@ const deleteNote = (formData) => {
 }
 
 /* const updateNote = (formData) => {
-  console.log(formData)
   return $.ajax({
     url: config.apiUrl + `/notes/${formData.note.id}`,
     method: 'PATCH',
@@ -40,7 +37,6 @@ const deleteNote = (formData) => {
 } */
 
 const updateNote = (id, formData) => {
-  console.log(formData)
   return $.ajax({
     url: config.apiUrl + '/notes/' + id,
     method: 'PATCH',

@@ -20,7 +20,6 @@ const onDeleteNote = event => {
   // const formData = getFormFields(form)
   // const id = $('#delete').val()
   const id = $(event.target).data('id')
-  console.log(id)
   api.deleteNote(id)
     .then(function () {
       onDisplayAllNotes(event)
