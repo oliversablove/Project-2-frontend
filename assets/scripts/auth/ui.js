@@ -31,6 +31,8 @@ const onSignInSuccess = responseData => {
   $('#changePW').show()
   $('#signUp').hide()
   $('#signIn').hide()
+  $('#newNote').show()
+  $('#displayAllNotes').show()
 
   store.user = responseData.user
 }
@@ -54,6 +56,8 @@ const onSignOutSuccess = () => {
   $('#changePW').hide()
   $('#signUp').show()
   $('#signIn').show()
+  $('#newNote').hide()
+  $('#displayAllNotes').hide()
   $('.content').text('')
 }
 
