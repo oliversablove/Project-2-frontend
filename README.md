@@ -34,5 +34,10 @@ User Stories:
 2. As a user, I want to be able to access all the notes I have written so I can remember and keep track of all of my ideas.
 3. As a user, I want to be able to update a note incase I have more thoughts to add after I have already written it.
 
+Deployed Site:
+https://oliversablove.github.io/Project-2-frontend/
+Deployed Back-End:
+https://young-lake-86313.herokuapp.com
+
 Back-End Repository:
 https://github.com/oliversablove/Project-2-backend
