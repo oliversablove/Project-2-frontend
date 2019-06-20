@@ -11,6 +11,9 @@ const onNewNote = event => {
 
   api.newNote(formData)
     .then(ui.onNewNoteSuccess)
+    .then(function () {
+      onDisplayAllNotes(event)
+    })
     .catch(ui.onNewNoteFailure)
 }
 
@@ -21,9 +24,9 @@ const onDeleteNote = event => {
   // const id = $('#delete').val()
   const id = $(event.target).data('id')
   api.deleteNote(id)
+    .then(ui.onDeleteNoteSuccess)
     .then(function () {
       onDisplayAllNotes(event)
-      ui.onDeleteNoteSuccess()
     })
     .catch(ui.onDeleteNoteFailure)
 }
@@ -50,8 +53,8 @@ const onUpdateNote = event => {
   api.updateNote(id, formData)
     .then(function () {
       onDisplayAllNotes(event)
-      ui.onUpdateNoteSuccess()
     })
+    .then(ui.onUpdateNoteSuccess)
     .catch(ui.onUpdateNoteFailure)
 }
 
